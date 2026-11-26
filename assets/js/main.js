@@ -41,8 +41,8 @@
     }
   }
   if (document.documentElement.classList.contains('splash')) {
-    var contentTimer = setTimeout(showContent, 150);
-    function milestone(){ milestonesDone++; if (milestonesDone>=3){ clearTimeout(contentTimer); exitSplash(); } }
+    requestAnimationFrame(function(){ requestAnimationFrame(showContent); });
+    function milestone(){ milestonesDone++; if (milestonesDone>=3){ setTimeout(exitSplash, Math.max(0, 2400 - performance.now())); } }
     window.addEventListener('DOMContentLoaded', function(){ fillSeg(0); milestone(); }, {once:true});
     if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ fillSeg(1); milestone(); }).catch(function(){ fillSeg(1); milestone(); }); }
     else { fillSeg(1); milestone(); }

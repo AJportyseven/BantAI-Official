@@ -18,7 +18,7 @@
       var reduce=false;
       try { reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
       var shown=false;
-      try { if (sessionStorage.getItem('bantai-splash')==='1') shown=true; } catch(e){}
+      try { var nv=performance.getEntriesByType('navigation')[0]; if (nv && (nv.type==='reload' || nv.type==='back_forward')) shown=true; var rf=document.referrer; if (rf){ var ru=new URL(rf); if (ru.protocol===location.protocol && ru.host===location.host) shown=true; } } catch(e){} try { if (sessionStorage.getItem('bantai-splash')==='1') shown=true; sessionStorage.setItem('bantai-splash','1'); } catch(e){}
       if (!reduce && !shown) { d.classList.add('splash'); }
       setTimeout(function(){ d.classList.remove('splash'); if (!window.__bantaiReady){ d.classList.remove('js'); } }, 4000);
     })();
@@ -32,10 +32,6 @@
     <div class="splash-inner">
       <img src="assets/images/bantaillogo.png" alt="" width="56" height="56" class="splash-logo">
       <div class="splash-wordmark">Bant<span>AI</span></div>
-      <div class="splash-label">OFFLINE CLASSROOM ASSESSMENT SYSTEM</div>
-      <div class="splash-segments" aria-hidden="true">
-        <span class="splash-seg"></span><span class="splash-seg"></span><span class="splash-seg"></span>
-      </div>
     </div>
   </div>
 
