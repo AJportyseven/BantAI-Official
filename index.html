@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BantAI: Offline Classroom Assessment System</title>
+  <meta name="description" content="BantAI is an offline Windows app that flags head turns, unusual movement and prohibited objects from a classroom camera for a proctor to review.">
+  <meta name="theme-color" content="#F4F3EF">
+  <link rel="icon" type="image/png" href="assets/images/bantaillogo.png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/plus-jakarta-sans.woff2">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function(){
+      var d=document.documentElement;
+      d.classList.add('js');
+      window.__bantaiReady=false;
+      var reduce=false;
+      try { reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+      var shown=false;
+      try { if (sessionStorage.getItem('bantai-splash')==='1') shown=true; } catch(e){}
+      if (!reduce && !shown) { d.classList.add('splash'); }
+      setTimeout(function(){ d.classList.remove('splash'); if (!window.__bantaiReady){ d.classList.remove('js'); } }, 4000);
+    })();
+  </script>
+  <noscript><style>#splash{display:none !important;}</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div id="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <img src="assets/images/bantaillogo.png" alt="" width="56" height="56" class="splash-logo">
+      <div class="splash-wordmark">Bant<span>AI</span></div>
+      <div class="splash-label">OFFLINE CLASSROOM ASSESSMENT SYSTEM</div>
+      <div class="splash-segments" aria-hidden="true">
+        <span class="splash-seg"></span><span class="splash-seg"></span><span class="splash-seg"></span>
+      </div>
+    </div>
+  </div>
+
+  <header class="nv" id="nv" data-state="top" data-theme="light" data-hidden="false" data-open="false">
+  <div class="nv-pill">
+    <a class="nv-brand" href="#top"><img src="assets/images/bantaillogo.png" alt="" width="26" height="26"><span class="nv-word">Bant<b>AI</b></span></a>
+    <nav class="nv-links" id="nv-links" aria-label="Sections" data-ind="off">
+      <span class="nv-ind" aria-hidden="true"></span>
+      <a class="nv-l" href="#top" style="--i:0" aria-current="location"><span class="nv-t">Overview</span></a>
+      <a class="nv-l" href="#classroom" style="--i:1"><span class="nv-t">Console</span></a>
+      <a class="nv-l" href="#how" style="--i:2"><span class="nv-t">How it works</span></a>
+      <a class="nv-l" href="#evidence" style="--i:3"><span class="nv-t">Evidence</span></a>
+      <a class="nv-l" href="#deployment" style="--i:4"><span class="nv-t">Setup</span></a>
+      <a class="nv-l" href="about.html" style="--i:6"><span class="nv-t">About</span></a>
+      <a class="nv-l nv-l--dl" href="download.html" style="--i:7"><span class="nv-t">Download</span></a>
+    </nav>
+    <button class="nv-burger" type="button" aria-expanded="false" aria-controls="nv-links"><span class="nv-burger-l">Menu</span><span class="nv-burger-i" aria-hidden="true"><i></i><i></i></span></button>
+  </div>
+  <a class="nv-cta" href="download.html"><span class="nv-cta-t">Download</span></a>
+</header>
+
+
+
+
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+<section class="hx" id="top" aria-labelledby="hx-title">
+  <div class="hx-first">
+    <div class="hx-wrap">
+      <h1 class="hx-title" id="hx-title">
+        <span class="hx-line"><span class="hx-rise-line" style="--d:0">The proctor</span></span>
+        <span class="hx-line hx-line--r"><span class="hx-rise-line" style="--d:1"><span class="hx-flag">decides.</span></span></span>
+      </h1>
+      <div class="hx-side">
+        <p class="hx-lead hx-rise" style="--d:3">BantAI is an offline Windows app that watches a classroom camera feed and flags head turns, unusual movement and prohibited objects for a proctor to review. It never decides misconduct.</p>
+        <div class="hx-actions hx-rise" style="--d:4">
+          <a class="hx-btn" href="#how"><span class="hx-btn-t">How it works</span></a>
+          <a class="hx-link" href="about.html"><span class="hx-link-t">About the project</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hx-mq" role="group" aria-label="What BantAI flags and who decides">
+    <div class="hx-mq-track">
+      <ul class="hx-mq-group">
+        <li>Head turns</li>
+        <li>Unusual movement</li>
+        <li>Prohibited objects</li>
+        <li>Flagged for review</li>
+        <li>Decided by a person</li>
+      </ul>
+      <ul class="hx-mq-group" aria-hidden="true">
+        <li>Head turns</li>
+        <li>Unusual movement</li>
+        <li>Prohibited objects</li>
+        <li>Flagged for review</li>
+        <li>Decided by a person</li>
+      </ul>
+    </div>
+  </div>
+  <div class="hx-say">
+    <p class="hx-q hx-q1"><span class="hx-w hx-w--l" style="--i:0">Students</span> <span class="hx-w hx-w--l" style="--i:1">deserve</span> <span class="hx-w hx-w--l" style="--i:2">to</span> <span class="hx-w hx-w--l" style="--i:3">have</span> <span class="hx-w hx-w--l" style="--i:4">their</span> <span class="hx-w hx-w--l" style="--i:5">effort</span> <span class="hx-w hx-w--l" style="--i:6">judged</span> <span class="hx-w hx-w--l" style="--i:7">fairly.</span></p>
+    <p class="hx-q hx-q2"><span class="hx-w hx-w--r" style="--i:0">Proctors</span> <span class="hx-w hx-w--r" style="--i:1">deserve</span> <span class="hx-w hx-w--r" style="--i:2">the</span> <span class="hx-w hx-w--r" style="--i:3">tools</span> <span class="hx-w hx-w--r" style="--i:4">to</span> <span class="hx-w hx-w--r" style="--i:5">protect</span> <span class="hx-w hx-w--r" style="--i:6">that</span> <span class="hx-w hx-w--r" style="--i:7">fairness.</span></p>
+    <p class="hx-q hx-join"><span class="hx-bar hx-bar--l" aria-hidden="true"><i></i></span><span class="hx-join-t"><span class="hx-w hx-w--l" style="--i:0">BantAI</span> <span class="hx-w hx-w--l" style="--i:1">connects</span> <span class="hx-w hx-w--r" style="--i:0">the</span> <span class="hx-w hx-w--r" style="--i:1">two.</span></span><span class="hx-bar hx-bar--r" aria-hidden="true"><i></i></span></p>
+    <p class="hx-q hx-end"><span class="hx-w hx-w--l" style="--i:0">Because</span> <span class="hx-w hx-w--l" style="--i:1">honest</span> <span class="hx-w hx-w--l" style="--i:2">effort</span> <span class="hx-w hx-w--l" style="--i:3">deserves</span> <span class="hx-em"><span class="hx-w hx-w--r" style="--i:4">honest</span> <span class="hx-w hx-w--r" style="--i:5">recognition.</span></span></p>
+  </div>
+</section>
+    <!-- Chapter 02 -->
+    <section class="chapter" id="classroom">
+      <div class="chapter-inner">
+
+        <div class="scene" data-scene data-step="0">
+          <div class="scene-pin">
+<h2 class="scene-title">The proctor console.</h2>
+<figure class="scene-figure">
+            <div class="scene-frame" data-reveal>
+              <div class="console-zoom">
+                <img src="assets/images/console.png" width="1589" height="990" decoding="async"
+                     alt="BantAI proctor console showing a live classroom feed with detection boxes, an alert queue on the right and session counts at the bottom.">
+              </div>
+            </div>
+          </figure>
+</div>
+
+          <div class="scene-copy">
+            <p class="scene-intro" data-reveal>Live camera feed, a queue of flagged moments, and session status in one window.</p>
+
+            <div class="scene-step" data-step-index="1" tabindex="0">
+              <span class="scene-num" aria-hidden="true">01</span>
+              <h3 class="scene-label">Live feed</h3>
+              <p>The camera view, with detection boxes drawn on each tracked student.</p>
+            </div>
+
+            <div class="scene-step" data-step-index="2" tabindex="0">
+              <span class="scene-num" aria-hidden="true">02</span>
+              <h3 class="scene-label">Alert queue</h3>
+              <p>Flagged moments wait here for review. Filter by head turn, movement or object.</p>
+            </div>
+
+            <div class="scene-step" data-step-index="3" tabindex="0">
+              <span class="scene-num" aria-hidden="true">03</span>
+              <h3 class="scene-label">Session status</h3>
+              <p>Pending, confirmed and dismissed counts for the session.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 03 -->
+    <section class="chapter pl" id="how" aria-labelledby="pl-h">
+  <div class="pl-wrap">
+    <div class="pl-scene" data-pl-scene data-step="1">
+      <div class="pl-pin">
+        <h2 class="pl-title" id="pl-h">From camera to decision.</h2>
+        <div class="pl-stage" aria-hidden="true">
+          <div class="pl-num"><span class="pl-roll"><span>01</span><span>02</span><span>03</span></span></div>
+          <div class="pl-track"><i></i></div>
+        </div>
+      </div>
+      <ol class="pl-steps">
+        <li class="pl-step is-active" data-pl-step="1">
+          <span class="pl-n" aria-hidden="true">01</span>
+          <h3 class="pl-t">Camera acquisition</h3>
+          <p class="pl-b">Reads frames from a USB webcam or an RTSP IP camera on the local network.</p>
+          <p class="pl-b">A 720p USB webcam is the minimum. A 1080p camera, over USB 3.0 or RTSP, is recommended.</p>
+          <p class="pl-b">Frames are processed on the computer BantAI is installed on. Nothing is sent to a server.</p>
+        </li>
+        <li class="pl-step" data-pl-step="2">
+          <span class="pl-n" aria-hidden="true">02</span>
+          <h3 class="pl-t">Coarse to fine</h3>
+          <p class="pl-b">Scans a downscaled full frame first, which keeps the first pass light.</p>
+          <p class="pl-b">When something is flagged, that region is checked again at full resolution with stricter logic, to reduce false positives.</p>
+          <p class="pl-b">It looks for head turns, unusual movement and prohibited objects. A flag only appears when a behaviour lasts long enough to meet the chosen sensitivity.</p>
+        </li>
+        <li class="pl-step" data-pl-step="3">
+          <span class="pl-n" aria-hidden="true">03</span>
+          <h3 class="pl-t">Evidence logging</h3>
+          <p class="pl-b">Saves a watermarked snapshot when a flag triggers. No continuous video is stored.</p>
+          <p class="pl-b">Each flag goes to the proctor console with its snapshot, marked pending until a person reviews it.</p>
+          <p class="pl-b">A short pause between snapshots stops one long behaviour from filling the queue with duplicates.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="pl-final">
+    <div class="pl-wrap">
+      <ol class="pl-final-list" start="4">
+        <li class="pl-final-item">
+          <span class="pl-fn" aria-hidden="true">04</span>
+          <div class="pl-fc">
+            <p class="pl-tag">Always a person</p>
+            <h3 class="pl-t">Human decision</h3>
+            <p class="pl-b">A proctor confirms or dismisses each flag. BantAI applies no penalties.</p>
+          <p class="pl-b">Dismissals are logged with the proctor's ID and a timestamp. Deleting evidence needs an administrator and leaves an audit log entry.</p>
+          <p class="pl-b">A PDF Final Incident Report, with the embedded snapshots, can be exported. It carries a watermark and disclaimers.</p>
+            
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+    <!-- Chapter 04 -->
+    <section class="chapter sim" id="evidence" aria-labelledby="sim-h" data-state="normal">
+  <div class="sim-wrap">
+    <h2 class="sim-title" id="sim-h">Turn the head. Watch the timer.</h2>
+    <p class="sim-lead">BantAI flags a head turn only when it passes a set angle and stays there long enough. The angle is measured from where each student normally looks. Pick a sensitivity, drag the head, and see when a flag would appear.</p>
+    <div class="sim-grid">
+      <div class="sim-stagecol">
+        <div class="sim-stage" id="sim-stage">
+          <canvas class="sim-canvas" id="sim-canvas" role="img" aria-label="A 3D model of a head. Drag sideways, or use the Head turn slider, to turn it."></canvas>
+          <p class="sim-msg" id="sim-msg">The 3D head needs JavaScript to run.</p>
+          <p class="sim-hint sim-k" aria-hidden="true">Drag the head sideways</p>
+        </div>
+        <div class="sim-yawrow">
+          <label class="sim-k" for="sim-yaw">Head turn</label>
+          <input class="sim-range" type="range" id="sim-yaw" min="-85" max="85" step="1" value="0">
+          <span class="sim-v" id="sim-yaw-out">0°</span>
+          <button class="sim-center" type="button" id="sim-center">Centre the head</button>
+        </div>
+      </div>
+      <div class="sim-panel">
+        <fieldset class="sim-block sim-presets">
+          <legend class="sim-k">Sensitivity</legend>
+          <div class="sim-opts">
+            <label class="sim-opt"><input type="radio" name="sim-preset" value="strict"><span>Strict</span></label>
+            <label class="sim-opt"><input type="radio" name="sim-preset" value="balanced" checked><span>Balanced</span></label>
+            <label class="sim-opt"><input type="radio" name="sim-preset" value="lenient"><span>Lenient</span></label>
+            <label class="sim-opt"><input type="radio" name="sim-preset" value="custom"><span>Custom</span></label>
+          </div>
+        </fieldset>
+        <div class="sim-block">
+          <div class="sim-ctl">
+            <div class="sim-row"><label class="sim-k" for="sim-angle">Head turn angle</label><span class="sim-v" id="sim-angle-out">20°</span></div>
+            <input class="sim-range" type="range" id="sim-angle" min="15" max="20" step="1" value="20">
+            <div class="sim-ends" aria-hidden="true"><span>15°</span><span>20°</span></div>
+          </div>
+          <div class="sim-ctl">
+            <div class="sim-row"><label class="sim-k" for="sim-dur">Head turn duration</label><span class="sim-v" id="sim-dur-out">2 s</span></div>
+            <input class="sim-range" type="range" id="sim-dur" min="1" max="5" step="1" value="2">
+            <div class="sim-ends" aria-hidden="true"><span>1 s</span><span>5 s</span></div>
+          </div>
+        </div>
+        <div class="sim-block sim-read">
+          <div class="sim-live" aria-live="polite" aria-atomic="true">
+            <p class="sim-state"><span class="sim-dot" aria-hidden="true"></span><span id="sim-state">Normal</span></p>
+            <p class="sim-explain" id="sim-explain">The head is inside the angle, so nothing is counted.</p>
+          </div>
+          <div class="sim-meter" aria-hidden="true"><span class="sim-fill" id="sim-fill"></span></div>
+          <p class="sim-time"><span class="sim-k">Time beyond the angle</span><span class="sim-v" id="sim-time">0.0 s / 2.0 s</span></p>
+        </div>
+        <p class="sim-foot">It shows how the angle and duration settings work. In BantAI, one continuous turn raises one flag, and a proctor reviews it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Chapter 05 -->
+    <section class="chapter dp" id="deployment" aria-labelledby="dp-h">
+  <div class="dp-wrap">
+    <h2 class="dp-title" id="dp-h">Built to run in a real classroom.</h2>
+    <p class="dp-lead">BantAI runs on one Windows computer in the room and reads from a USB webcam or an RTSP IP camera. Here is how each one is set up.</p>
+
+    <article class="dp-setup dp-setup--l" aria-labelledby="dp-usb-h">
+      <h3 class="dp-setup-title" id="dp-usb-h">USB webcam on a tripod</h3>
+      <div class="dp-media">
+        <img class="dp-img" src="assets/images/usb-layout.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Physical deployment layout for a USB webcam on a height adjustable tripod. The webcam sits 2.4 to 3.0 metres up, tilted 15 to 25 degrees downward, facing the student seating area. The proctor station, a Windows computer, is at the front of the room. A close up, a side view and a top view are shown on the right.">
+      </div>
+      <dl class="dp-specs">
+        <div><dt>Camera</dt><dd>A USB UVC webcam on a height adjustable tripod.</dd></div>
+        <div><dt>Height</dt><dd>2.4 to 3.0 m.</dd></div>
+        <div><dt>Tilt</dt><dd>15° to 25° downward.</dd></div>
+        <div><dt>Quality</dt><dd>Minimum 720p at 30 FPS over USB 2.0. Recommended 1080p over USB 3.0.</dd></div>
+      </dl>
+    </article>
+
+    <article class="dp-setup dp-setup--r" aria-labelledby="dp-rtsp-h">
+      <h3 class="dp-setup-title" id="dp-rtsp-h">RTSP camera on the ceiling</h3>
+      <div class="dp-media">
+        <img class="dp-img" src="assets/images/rtsp-layout.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Physical deployment layout for an RTSP network camera on a ceiling mount. The camera is 2.4 to 3.0 metres up, tilted 15 to 25 degrees downward, facing the student seating area. The proctor station, a Windows computer, is at the front of the room. A close up, a side view and a top view are shown on the right.">
+      </div>
+      <dl class="dp-specs">
+        <div><dt>Camera</dt><dd>An RTSP IP camera on a ceiling mount. No tripod is needed.</dd></div>
+        <div><dt>Height</dt><dd>2.4 to 3.0 m ceiling height.</dd></div>
+        <div><dt>Tilt</dt><dd>15° to 25° downward.</dd></div>
+        <div><dt>Network</dt><dd>Local network only. Recommended 1080p.</dd></div>
+      </dl>
+    </article>
+
+    <div class="dp-rows">
+      <div class="dp-row">
+        <h3 class="dp-row-title">What BantAI does not do</h3>
+        <ul class="dp-nots">
+          <li>No facial recognition.</li>
+          <li>No identity recognition.</li>
+          <li>No audio recording.</li>
+          <li>No cloud processing.</li>
+          <li>No external server needed to run.</li>
+          <li>No browser monitoring.</li>
+          <li>No decisions about misconduct. A person always decides.</li>
+        </ul>
+      </div>
+      <div class="dp-row">
+        <h3 class="dp-row-title">Known limits</h3>
+        <p class="dp-row-text">Ordinary movements can raise false alerts. Students far from the camera or overlapping are harder to detect. Constrained hardware can affect detection. That is why a person reviews every flag.</p>
+      </div>
+      <div class="dp-row">
+        <h3 class="dp-row-title">Questions</h3>
+        <div class="dp-faq">
+          <details class="dp-q"><summary>Does it need the internet?</summary><p>No. BantAI runs offline on the computer it is installed on.</p></details>
+          <details class="dp-q"><summary>Does it record video?</summary><p>No continuous video is stored. It saves a watermarked snapshot when a flag triggers.</p></details>
+          <details class="dp-q"><summary>Does it flag a brief or momentary movement?</summary><p>Not by itself. A flag appears only when a head turn or a movement passes the set size and lasts the set time, so a quick glance or a shift in the seat does not raise one.</p></details>
+          <details class="dp-q"><summary>What if a student is just stretching?</summary><p>A quick stretch is usually too short to count. A longer one can still meet the sensitivity and raise a flag, and the proctor decides what it means.</p></details>
+          <details class="dp-q"><summary>Can it flood the proctor with flags?</summary><p>It is built to avoid that. One continuous behaviour raises one flag, and repeats of the same behaviour within 10 seconds update that flag instead of adding a new one.</p></details>
+          <details class="dp-q"><summary>Can it be wrong?</summary><p>Yes. It can raise false alerts. That is why a person reviews every flag.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+    <!-- Chapter 06 -->
+    <section class="chapter au" id="authority" aria-labelledby="au-h">
+  <div class="au-wrap">
+    <div class="au-head">
+      <h2 class="au-title" id="au-h">
+        <span class="au-line au-a">AI OBSERVES.</span>
+        <span class="au-line au-b">HUMANS DECIDE.</span>
+      </h2>
+      <span class="au-rule" aria-hidden="true"></span>
+    </div>
+    <div class="au-body">
+      <p class="au-text">BantAI flags moments for review. A proctor looks at each one and makes the decision. Nothing is penalised automatically.</p>
+      <a class="au-link" href="download.html"><span class="au-link-t">Get the Windows app</span><span class="au-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="ft">
+  <div class="ft-wrap">
+    <div class="ft-top">
+      <div class="ft-col ft-brand">
+        <p class="ft-name">BantAI</p>
+        <p class="ft-desc">Offline AI-assisted classroom assessment monitoring support console.</p>
+        <div class="ft-notice">
+          <h2 class="ft-h">Open Source Notices</h2>
+          <p>Detection powered by <strong>YOLOv8</strong> under GNU AGPLv3.</p>
+        </div>
+      </div>
+      <nav class="ft-col" aria-label="Chapters">
+        <h2 class="ft-h">Chapters</h2>
+        <ul class="ft-list">
+          <li><a class="ft-link" href="#top"><span class="ft-n">01</span><span class="ft-t">Overview</span></a></li>
+          <li><a class="ft-link" href="#classroom"><span class="ft-n">02</span><span class="ft-t">Console</span></a></li>
+          <li><a class="ft-link" href="#how"><span class="ft-n">03</span><span class="ft-t">How it works</span></a></li>
+          <li><a class="ft-link" href="#evidence"><span class="ft-n">04</span><span class="ft-t">Evidence</span></a></li>
+          <li><a class="ft-link" href="#deployment"><span class="ft-n">05</span><span class="ft-t">Setup</span></a></li>
+          <li><a class="ft-link" href="#authority"><span class="ft-n">06</span><span class="ft-t">Oversight</span></a></li>
+        </ul>
+      </nav>
+      <nav class="ft-col" aria-label="Pages">
+        <h2 class="ft-h">Navigation</h2>
+        <ul class="ft-list">
+          <li><a class="ft-link" href="index.html"><span class="ft-t">Home</span></a></li>
+          <li><a class="ft-link" href="download.html"><span class="ft-t">Download</span></a></li>
+          <li><a class="ft-link" href="about.html"><span class="ft-t">About</span></a></li>
+        </ul>
+      </nav>
+      <div class="ft-col">
+        <h2 class="ft-h">Privacy boundaries</h2>
+        <ul class="ft-list ft-facts">
+          <li>No facial recognition</li>
+          <li>No identity recognition</li>
+          <li>No audio recording</li>
+          <li>No cloud processing</li>
+          <li>No browser monitoring</li>
+          <li>A person always decides</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-mark" aria-hidden="true"><span class="ft-mark-in">Bant<span class="ft-mark-ai">AI</span></span></div>
+    <div class="ft-bottom">
+      <p>© 2026 AJ Domingo. All rights reserved.</p>
+      <p>BantAI is an assistive proctoring tool. Final decisions remain with human proctors.</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="assets/js/main.js"></script>
+<script src="assets/js/deploy.js" defer></script>
+  <script src="assets/js/head-sim.js" defer></script>
+</body>
+</html>

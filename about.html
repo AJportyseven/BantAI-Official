@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About BantAI and AJ Domingo</title>
+  <meta name="description" content="About AJ Domingo, a 4th year BSIT student, and BantAI, his capstone project. BantAI is an offline classroom assessment system made for educational purposes and not for sale.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About BantAI and AJ Domingo">
+  <meta property="og:description" content="About AJ Domingo, a 4th year BSIT student, and BantAI, his capstone project. BantAI is an offline classroom assessment system made for educational purposes and not for sale.">
+  <link rel="icon" type="image/png" href="assets/images/bantaillogo.png">
+  <meta name="theme-color" content="#F4F3EF">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/plus-jakarta-sans.woff2">
+  <script>
+    (function(){
+      var d=document.documentElement;
+      d.classList.add('js');
+      window.__bantaiReady=false;
+      var reduce=false;
+      try { reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+      var shown=false;
+      try { if (sessionStorage.getItem('bantai-splash')==='1') shown=true; } catch(e){}
+      if (!reduce && !shown) { d.classList.add('splash'); }
+      // failsafe 4000ms
+      setTimeout(function(){
+        d.classList.remove('splash');
+        if (!window.__bantaiReady) d.classList.remove('js');
+      }, 4000);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <noscript><style>#splash{display:none !important;}</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div id="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <img src="assets/images/bantaillogo.png" alt="" width="56" height="56" class="splash-logo">
+      <div class="splash-wordmark">Bant<span>AI</span></div>
+      <div class="splash-label">OFFLINE CLASSROOM ASSESSMENT SYSTEM</div>
+      <div class="splash-segments" aria-hidden="true">
+        <span class="splash-seg"></span><span class="splash-seg"></span><span class="splash-seg"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Header Navigation -->
+<header class="nv" id="nv" data-state="top" data-theme="light" data-hidden="false" data-open="false">
+  <div class="nv-pill">
+    <a class="nv-brand" href="index.html"><img src="assets/images/bantaillogo.png" alt="" width="26" height="26"><span class="nv-word">Bant<b>AI</b></span></a>
+    <nav class="nv-links" id="nv-links" aria-label="Sections" data-ind="off">
+      <span class="nv-ind" aria-hidden="true"></span>
+      <a class="nv-l" href="index.html#top" style="--i:0"><span class="nv-t">Overview</span></a>
+      <a class="nv-l" href="index.html#classroom" style="--i:1"><span class="nv-t">Console</span></a>
+      <a class="nv-l" href="index.html#how" style="--i:2"><span class="nv-t">How it works</span></a>
+      <a class="nv-l" href="index.html#evidence" style="--i:3"><span class="nv-t">Evidence</span></a>
+      <a class="nv-l" href="index.html#deployment" style="--i:4"><span class="nv-t">Setup</span></a>
+      <a class="nv-l" href="about.html" style="--i:6" aria-current="page"><span class="nv-t">About</span></a>
+      <a class="nv-l nv-l--dl" href="download.html" style="--i:7"><span class="nv-t">Download</span></a>
+    </nav>
+    <button class="nv-burger" type="button" aria-expanded="false" aria-controls="nv-links"><span class="nv-burger-l">Menu</span><span class="nv-burger-i" aria-hidden="true"><i></i><i></i></span></button>
+  </div>
+  <a class="nv-cta" href="download.html"><span class="nv-cta-t">Download</span></a>
+</header>
+
+<main id="main" tabindex="-1" class="ab">
+
+  <section class="ab-hero" aria-labelledby="ab-h1">
+    <div class="ab-wrap ab-hero-grid">
+      <h1 class="ab-title" id="ab-h1"><span class="ab-line ab-l1">Bant<span class="ab-ai">AI</span> is a</span><span class="ab-line ab-l2">student project.</span></h1>
+      <figure class="ab-photo">
+        <div class="ab-photo-wrap"><div class="ab-photo-frame"><img src="assets/images/aj.jpg" alt="AJ Domingo" width="1024" height="1024" decoding="async" fetchpriority="high"></div></div>
+      </figure>
+      <div class="ab-hero-copy">
+        <span class="ab-rule" aria-hidden="true"></span>
+        <p class="ab-lead">Hello, I am AJ Domingo, a 4th year Bachelor of Science in Information Technology student. BantAI is my capstone project.</p>
+        <p class="ab-lead">I worked on it by myself, from the first plan to the installer you can download. There is still a lot I am learning, and this page is a simple account of how it was made.</p>
+        <ul class="ab-jump" aria-label="On this page">
+          <li><a href="#ab-purpose"><span>Purpose</span></a></li>
+          <li><a href="#ab-did"><span>What I worked on</span></a></li>
+          <li><a href="#ab-journey"><span>How it went</span></a></li>
+          <li><a href="#ab-stack"><span>What I used</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="ab-purpose ab-dark" id="ab-purpose" aria-labelledby="ab-purpose-h">
+    <div class="ab-wrap">
+      <h2 class="ab-big" id="ab-purpose-h"><span class="ab-bl ab-bl-a">Made to learn.</span><span class="ab-bl ab-bl-b">Not made to sell.</span></h2>
+      <div class="ab-purpose-cols">
+        <p class="ab-purpose-text ab-rv">BantAI is a school project. I made it to learn how a real system is planned, built and finished, and to show what I have learned so far.</p>
+        <p class="ab-purpose-text ab-rv">It was made for educational purposes only. It is not for sale, and it is not meant to replace anyone's judgement. A person always makes the final decision.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-sec" id="ab-did" aria-labelledby="ab-did-h">
+    <div class="ab-wrap ab-grid">
+      <div class="ab-side ab-rv ab-rv-l">
+        <h2 class="ab-h2" id="ab-did-h">What I worked on.</h2>
+        <p class="ab-note">I worked on BantAI by myself, so each part below was my job. Some parts were harder than others, and I learned something from all of them.</p>
+      </div>
+      <ul class="ab-did">
+        <li class="ab-row ab-rv"><h3 class="ab-row-n">Planning and design</h3><p class="ab-row-d">I decided what BantAI should do, what it must never do, and how every screen should look.</p></li>
+        <li class="ab-row ab-rv"><h3 class="ab-row-n">The proctor's console</h3><p class="ab-row-d">The screens where a proctor watches a session and reviews each flagged moment and decides what to do.</p></li>
+        <li class="ab-row ab-rv"><h3 class="ab-row-n">The detection</h3><p class="ab-row-d">The part that looks at the camera picture and notices head turns, movement and objects.</p></li>
+        <li class="ab-row ab-rv"><h3 class="ab-row-n">The records</h3><p class="ab-row-d">The part that saves each session and each flag on the same computer.</p></li>
+        <li class="ab-row ab-rv"><h3 class="ab-row-n">The installer</h3><p class="ab-row-d">The package that puts BantAI on a Windows computer.</p></li>
+        <li class="ab-row ab-rv"><h3 class="ab-row-n">This website</h3><p class="ab-row-d">Every page, from the layout to the animations.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ab-sec ab-sec-journey" id="ab-journey" aria-labelledby="ab-journey-h">
+    <div class="ab-wrap ab-grid">
+      <div class="ab-side ab-rv ab-rv-l">
+        <h2 class="ab-h2" id="ab-journey-h">How it was made.</h2>
+        <p class="ab-note">Not everything worked the first time. This is the story in the order it happened.</p>
+      </div>
+      <ol class="ab-path">
+        <li class="ab-step ab-rv"><p class="ab-step-n">Step 01</p><h3 class="ab-step-t">Setting the rules</h3><p class="ab-step-p">Before building I set the rules. BantAI runs offline, records no audio, never recognises faces, and leaves every decision to a person.</p></li>
+        <li class="ab-step ab-rv"><p class="ab-step-n">Step 02</p><h3 class="ab-step-t">Teaching it to see</h3><p class="ab-step-p">I used open source models so the program could find people and objects in a camera picture and keep track of each person on screen.</p></li>
+        <li class="ab-step ab-rv"><p class="ab-step-n">Step 03</p><h3 class="ab-step-t">Building the console</h3><p class="ab-step-p">I built the part that stores each session, and the screens where a proctor reviews every flagged moment and decides what to do.</p></li>
+        <li class="ab-step ab-rv"><p class="ab-step-n">Step 04</p><h3 class="ab-step-t">The version that failed</h3><p class="ab-step-p">My first live video design made the computer run out of memory and freeze. I started that part again. BantAI now keeps one watermarked photo at the moment of a flag instead of video.</p></li>
+        <li class="ab-step ab-rv"><p class="ab-step-n">Step 05</p><h3 class="ab-step-t">A Windows desktop app</h3><p class="ab-step-p">I packaged BantAI as a Windows desktop app and added support for USB and network cameras.</p></li>
+        <li class="ab-step ab-rv"><p class="ab-step-n">Step 06</p><h3 class="ab-step-t">Version 1, then Version 2</h3><p class="ab-step-p">Version 1 is ready as a Windows installer. Version 2 is still in progress and is not available yet.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="ab-sec ab-dark" id="ab-stack" aria-labelledby="ab-stack-h">
+    <div class="ab-wrap ab-grid">
+      <div class="ab-side ab-rv ab-rv-l">
+        <h2 class="ab-h2" id="ab-stack-h">What I used.</h2>
+        <p class="ab-note">Here is what each one does, without the jargon.</p>
+      </div>
+      <div>
+        <ul class="ab-stack">
+          <li class="ab-tool ab-rv"><h3 class="ab-tool-n">Python</h3><p class="ab-tool-d">The language the main program is written in.</p></li>
+          <li class="ab-tool ab-rv"><h3 class="ab-tool-n">FastAPI</h3><p class="ab-tool-d">Lets the screens and the detection pass messages to each other on the same computer.</p></li>
+          <li class="ab-tool ab-rv"><h3 class="ab-tool-n">SQLite</h3><p class="ab-tool-d">A small database that keeps sessions and flags on the computer.</p></li>
+          <li class="ab-tool ab-rv"><h3 class="ab-tool-n">YOLOv8</h3><p class="ab-tool-d">An open source model from Ultralytics that finds people and objects in a picture.</p></li>
+          <li class="ab-tool ab-rv"><h3 class="ab-tool-n">HTML, CSS and JavaScript</h3><p class="ab-tool-d">The console screens and this website.</p></li>
+          <li class="ab-tool ab-rv"><h3 class="ab-tool-n">PyInstaller and Inno Setup</h3><p class="ab-tool-d">Wrap the program into one installer for Windows.</p></li>
+        </ul>
+        <p class="ab-credit ab-rv">Detection and pose estimation use YOLOv8n and YOLOv8 Pose from Ultralytics, licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.txt" target="_blank" rel="noopener noreferrer">GNU Affero General Public License v3.0</a>. Source repository: <a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener noreferrer">github.com/ultralytics/ultralytics</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-sec ab-find" id="ab-find" aria-labelledby="ab-find-h">
+    <div class="ab-wrap">
+      <div class="ab-find-head">
+        <h2 class="ab-h2" id="ab-find-h">Find me online.</h2>
+        <p class="ab-note">If you would like to see my other work, or the code behind this website, these links are open to anyone. Thank you for reading.</p>
+      </div>
+      <ul class="ab-links">
+        <li class="ab-rv"><a class="ab-link" href="https://ajdomingo.cu.ma" target="_blank" rel="noopener noreferrer"><span class="ab-link-t">Portfolio</span><span class="ab-link-a" aria-hidden="true">→</span><span class="ab-vh">Opens in a new tab</span></a></li>
+        <li class="ab-rv"><a class="ab-link" href="https://github.com/AJportyseven/BantAI-Landing-page" target="_blank" rel="noopener noreferrer"><span class="ab-link-t">GitHub</span><span class="ab-link-a" aria-hidden="true">→</span><span class="ab-vh">Opens in a new tab</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+  <!-- Shared Footer -->
+  <footer class="ft">
+  <div class="ft-wrap">
+    <div class="ft-top">
+      <div class="ft-col ft-brand">
+        <p class="ft-name">BantAI</p>
+        <p class="ft-desc">Offline AI-assisted classroom assessment monitoring support console.</p>
+        <div class="ft-notice">
+          <h2 class="ft-h">Open Source Notices</h2>
+          <p>Detection powered by <strong>YOLOv8</strong> under GNU AGPLv3.</p>
+        </div>
+      </div>
+      <nav class="ft-col" aria-label="Chapters">
+        <h2 class="ft-h">Chapters</h2>
+        <ul class="ft-list">
+          <li><a class="ft-link" href="index.html#top"><span class="ft-n">01</span><span class="ft-t">Overview</span></a></li>
+          <li><a class="ft-link" href="index.html#classroom"><span class="ft-n">02</span><span class="ft-t">Console</span></a></li>
+          <li><a class="ft-link" href="index.html#how"><span class="ft-n">03</span><span class="ft-t">How it works</span></a></li>
+          <li><a class="ft-link" href="index.html#evidence"><span class="ft-n">04</span><span class="ft-t">Evidence</span></a></li>
+          <li><a class="ft-link" href="index.html#deployment"><span class="ft-n">05</span><span class="ft-t">Setup</span></a></li>
+          <li><a class="ft-link" href="index.html#authority"><span class="ft-n">06</span><span class="ft-t">Oversight</span></a></li>
+        </ul>
+      </nav>
+      <nav class="ft-col" aria-label="Pages">
+        <h2 class="ft-h">Navigation</h2>
+        <ul class="ft-list">
+          <li><a class="ft-link" href="index.html"><span class="ft-t">Home</span></a></li>
+          <li><a class="ft-link" href="download.html"><span class="ft-t">Download</span></a></li>
+          <li><a class="ft-link" href="about.html"><span class="ft-t">About</span></a></li>
+        </ul>
+      </nav>
+      <div class="ft-col">
+        <h2 class="ft-h">Privacy boundaries</h2>
+        <ul class="ft-list ft-facts">
+          <li>No facial recognition</li>
+          <li>No identity recognition</li>
+          <li>No audio recording</li>
+          <li>No cloud processing</li>
+          <li>No browser monitoring</li>
+          <li>A person always decides</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-mark" aria-hidden="true"><span class="ft-mark-in">Bant<span class="ft-mark-ai">AI</span></span></div>
+    <div class="ft-bottom">
+      <p>© 2026 AJ Domingo. All rights reserved.</p>
+      <p>BantAI is an assistive proctoring tool. Final decisions remain with human proctors.</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
